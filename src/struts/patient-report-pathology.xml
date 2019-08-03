@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="patient-report-pathology" namespace="/patient-report-pathology" extends="json-default, authorized">
+	
+		<action name="form" class="com.doerit.action.patient.PatientReportPathologyAction" method="form">
+			<result name="success">/WEB-INF/content/patient/PathologyReport/form.jsp</result>
+		</action>
+		
+		<action name="save" class="com.doerit.action.patient.PatientReportPathologyAction" method="save">
+			<result name="input">/WEB-INF/content/patient/PathologyReport/form.jsp</result>	
+			<result name="success">/WEB-INF/content/patient/PathologyReport/form.jsp</result>	
+		</action>
+		
+		<action name="view" class="com.doerit.action.patient.PatientReportPathologyAction" method="view">
+			<result name="success">/WEB-INF/content/patient/PathologyReport/view.jsp</result>
+		</action>
+		
+		<action name="delete" class="com.doerit.action.patient.PatientReportPathologyAction" method="delete">
+			<result name="success">/WEB-INF/content/patient/PathologyReport/view.jsp</result>
+		</action> 
+
+	<action name="fileUploadAction"
+	    class="com.doerit.action.patient.PatientReportPathologyAction" method="display">
+	    <result name="none">pages/fileupload.jsp</result>
+	</action>
+
+	<action name="resultAction" class="com.doerit.action.patient.PatientReportPathologyAction">
+	    <interceptor-ref name="exception"/>
+            <interceptor-ref name="i18n"/>
+            <interceptor-ref name="fileUpload">
+       		<param name="allowedTypes">text/plain</param>
+       		<param name="maximumSize">10240000</param>
+  	    </interceptor-ref>
+            <interceptor-ref name="params">
+                <param name="excludeParams">dojo\..*,^struts\..*</param>
+            </interceptor-ref>
+            <interceptor-ref name="validation">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <interceptor-ref name="workflow">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+
+	    <result name="success">/WEB-INF/content/patient/PathologyReport/view.jsp</result>
+	    <result name="input">/WEB-INF/content/patient/PathologyReport/form.jsp</result>
+	</action>
+	
+	<action name="list" class="com.doerit.action.pathology.PathologyReportAction" method="list">
+			<result name="success">/WEB-INF/content/pathology/list.jsp</result>
+	</action>
+		
+	</package>
+		
+</struts>

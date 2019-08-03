@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="patient-request-xray" namespace="/patient-request-xray"
+		extends="json-default, authorized">
+
+		<action name="form"
+			class="com.doerit.action.patient.PatientRequestXrayAction" method="form">
+			<result name="success">/WEB-INF/content/patient/requestXray/form.jsp
+			</result>
+		</action>
+
+		<action name="save"	class="com.doerit.action.patient.PatientRequestXrayAction" method="save">
+			<result name="input">/WEB-INF/content/patient/requestXray/form.jsp 
+			</result> 
+<!-- 			<result name="success">/WEB-INF/content/patient/requestXray/view.jsp 
+ 			</result>   -->
+
+
+ 			<result name="success" type="redirectAction">
+				<param name="actionName">view</param>
+				<param name="namespace">/patient-request-xray</param>
+				<param name="id">${patientRequestXray.id}</param>
+			</result>
+
+		</action>
+
+		
+		<action name="edit" class="com.doerit.action.patient.PatientRequestXrayAction" method="edit">
+			<result name="success">/WEB-INF/content/patient/requestXray/form.jsp</result>
+		</action>
+
+		<action name="view" class="com.doerit.action.patient.PatientRequestXrayAction" method="view">
+			<result name="success">/WEB-INF/content/patient/requestXray/view.jsp
+			</result>
+			
+			
+		</action>
+
+
+		<action name="information-pdf"
+			class="com.doerit.action.patient.PatientRequestXrayAction" method="patientXrayRequestPdf">
+			<result name="success" type="stream">
+				<param name="contentType">application/pdf</param>
+				<param name="inputName">fileInputStream</param>
+				<param name="contentDisposition">filename="${fileName}"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+			<result name="input">/WEB-INF/content/common/error.jsp</result>
+		</action>
+
+		<action name="error"
+			class="com.doerit.action.patient.PatientRequestXrayAction" method="form">
+			<result name="success">/WEB-INF/content/common/page-underconstruction.jsp
+			</result>
+		</action>
+
+		<!-- Uploaded report list -->
+		<action name="list" class="com.doerit.action.xray.XrayReportAction"	method="list">
+			<result name="success">/WEB-INF/content/xray/list.jsp</result>
+		</action>
+
+
+		<!-- list action for requests pager -->
+		<action name="listRequests" class="com.doerit.action.xray.XrayRequestAction" method="listRequests">
+			<result name="success">/WEB-INF/content/xrayRequests/list.jsp</result>
+		</action>
+
+
+		<!-- setAcceptedStatus -->
+		<action name="setAcceptedStatus" class="com.doerit.action.xray.XrayRequestAction" method="setAcceptedStatus">
+			<result name="success">/WEB-INF/content/xrayRequests/list.jsp</result>
+		</action>
+
+		<!-- list action for accepted xrays -->
+		<action name="listAccepted" class="com.doerit.action.xray.XrayRequestAction" method="listAccepted">
+			<result name="success">/WEB-INF/content/xrayRequests/list.jsp</result>
+		</action>
+
+
+	</package>
+
+</struts>

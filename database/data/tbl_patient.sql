@@ -1,0 +1,2 @@
+INSERT INTO `dental_db`.`tbl_patient` (`ID`, `SERIAL_NUMBER`, `TITLE`, `SURNAME`, `INITIALS`, `FIRST_NAME`, `NIC`, `CHILD`, `DATE_OF_BIRTH`, `SEX`, `ETHNICITY`, `COUNTRY`, `MOBILE`, `EMAIL`, `ADDRESS`, `DISTRICT_ID`, `STATUS`, `INSERT_DATETIME`) 
+VALUES ('1516857076763', '18020001', 'Mr', 'Thennakoon', 'TMAB', 'Arjuna', '930032190V', 'false', '1993-01-03', 'Male', 'Sinhala', 'Sri Lankan', '0716842127', '', '', '14', '1', '2018-02-08 20:27:03');

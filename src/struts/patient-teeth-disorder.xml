@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="patient-teeth-disorder" namespace="/patient-teeth-disorder" extends="json-default, authorized">
+
+		<action name="view" class="com.doerit.action.patient.teeth.PatientTeethDisorderAction" method="view">
+			<result name="success">/WEB-INF/content/patient/disordersOfTeeth/view-history.jsp</result>
+		</action>
+
+		<action name="addDisorder" class="com.doerit.action.patient.teeth.PatientTeethDisorderAction" method="addDisorder">
+			<result name="success">/WEB-INF/content/patient/disordersOfTeeth/addDisorder.jsp</result>
+		</action>
+			
+		<action name="confirm" class="com.doerit.action.patient.teeth.PatientTeethDisorderAction" method="confirm">
+		
+			<result name="success" type="redirectAction">
+				<param name="actionName">view</param>
+				<param name="namespace">/patient-teeth-disorder</param>
+				<param name="patientId">${patientId}</param>
+			</result>	
+			<result name="input">/WEB-INF/content/patient/disordersOfTeeth/view.jsp</result>
+		</action>
+		
+		<action name="save" class="com.doerit.action.patient.teeth.PatientTeethDisorderAction" method="save">
+			<param name="patientId">${patientTeethDisorder.patientId}</param>
+			<result name="success">/WEB-INF/content/patient/disordersOfTeeth/edit.jsp</result>
+			<result name="input">/WEB-INF/content/patient/disordersOfTeeth/edit.jsp</result> 
+<!-- 			<result name="success">/WEB-INF/content/patient/disordersOfTeeth/addDisorder.jsp</result>
+			<result name="input">/WEB-INF/content/patient/disordersOfTeeth/addDisorder.jsp</result>
+			<result name="error">/WEB-INF/content/patient/disordersOfTeeth/addDisorder.jsp</result> -->
+		</action>
+
+		<action name="isMissingTeethAdded" class="com.doerit.action.patient.teeth.PatientTeethDisorderAction" method="isMissingTeethAdded">
+			<result name = "true">"true"</result>
+			<result name = "false">"false"</result>
+		</action>
+		
+	</package>
+		
+</struts>

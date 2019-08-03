@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="patient-complaint" namespace="/patient-complaint"
+		extends="json-default, authorized">
+
+		<action name="init"
+			class="com.doerit.action.patient.PatientDiagnosticComplaintAction" method="formInit">
+			<result name="success">/WEB-INF/content/patient/diagnostic/complaint.jsp</result>	
+		</action>
+		
+		<action name="form"
+			class="com.doerit.action.patient.PatientDiagnosticComplaintAction" method="form">
+			<result name="success">/WEB-INF/content/patient/diagnostic/complaint.jsp</result>	
+		</action>
+		
+		<action name="resubmitForm"
+			class="com.doerit.action.patient.PatientDiagnosticComplaintAction" method="resubmitForm">
+			<result name="success">/WEB-INF/content/patient/diagnostic/complaint.jsp</result>	
+		</action>
+		
+		<action name="save"
+			class="com.doerit.action.patient.PatientDiagnosticComplaintAction" method="save">
+			<result name="success">/WEB-INF/content/patient/diagnostic/dentalHistory.jsp</result>	
+			<result name="input">/WEB-INF/content/patient/diagnostic/complaint.jsp</result>	
+			<result name="preview">/WEB-INF/content/patient/diagnostic/preview.jsp</result>	
+		</action>		
+		
+		
+	</package>
+	
+	<package name="report-resubmit" namespace="/report-resubmit"
+		extends="json-default, authorized">
+		<action name="resubmit"
+			class="com.doerit.action.patient.PatientDiagnosticComplaintAction" method="resubmitForm">
+			<result name="success">/WEB-INF/content/patient/diagnostic/dentalHistory.jsp</result>	
+		</action>
+	</package>
+	
+	<package name="patient-dental-history" namespace="/patient-dental-history"
+		extends="json-default, authorized">
+
+	<action name="form" 
+		class="com.doerit.action.patient.PatientDiagnosticDentalHistoryAction" method="form">
+		<result name="success">/WEB-INF/content/patient/diagnostic/dentalHistory.jsp</result>
+	</action>	
+	<action name="save"
+		class="com.doerit.action.patient.PatientDiagnosticDentalHistoryAction" method="save">
+		<result name="success">/WEB-INF/content/patient/diagnostic/mediRecord1.jsp</result>	
+		<result name="input">/WEB-INF/content/patient/diagnostic/dentalHistory.jsp</result>
+		<result name="preview">/WEB-INF/content/patient/diagnostic/preview.jsp</result>	
+	</action>
+	
+			
+		
+
+	</package>
+	
+	<package name="patient-medical-record1" namespace="/patient-medical-record1"
+		extends="json-default, authorized">
+
+		<action name="form"
+			class="com.doerit.action.patient.PatientDiagnosticMedicalRecord1Action" method="form">
+			<result name="success">/WEB-INF/content/patient/diagnostic/mediRecord1.jsp</result>	
+		</action>
+		<action name="save"
+			class="com.doerit.action.patient.PatientDiagnosticMedicalRecord1Action" method="save">
+			<result name="success">/WEB-INF/content/patient/diagnostic/mediRecord2.jsp</result>	
+			<result name="input">/WEB-INF/content/patient/diagnostic/mediRecord1.jsp</result>	
+			<result name="preview">/WEB-INF/content/patient/diagnostic/preview.jsp</result>	
+			
+		</action>
+	</package>
+	
+	<package name="patient-medical-record2" namespace="/patient-medical-record2"
+		extends="json-default, authorized">
+
+		<action name="form"
+			class="com.doerit.action.patient.PatientDiagnosticMedicalRecord2Action" method="form">
+			<result name="success">/WEB-INF/content/patient/diagnostic/mediRecord2.jsp</result>	
+		</action>
+		<action name="save"
+			class="com.doerit.action.patient.PatientDiagnosticMedicalRecord2Action" method="save">
+			<result name="success">/WEB-INF/content/patient/diagnostic/mediRecord3.jsp</result>	
+			<result name="input">/WEB-INF/content/patient/diagnostic/mediRecord2.jsp</result>
+			<result name="preview">/WEB-INF/content/patient/diagnostic/preview.jsp</result>	
+				
+		</action>
+		<action name="print" class="com.doerit.action.patient.PatientDiagnosticMedicalRecord2PrintAction" method="view">
+			<result name="success">/WEB-INF/content/patient/diagnostic/print/medicalRecord2-print.jsp</result>
+		</action>		
+		<action name="patient-medical-record2-pdf" class="com.doerit.action.patient.PatientDiagnosticMedicalRecord2PrintAction" method="patientInformationPdf">
+			<result name="success" type="stream">
+			  <param name="contentType">application/pdf</param>
+			  <param name="inputName">fileInputStream</param>
+			  <param name="contentDisposition">filename="${fileName}"</param>
+			  <param name="bufferSize">1024</param>
+			</result>
+			<result name="input">/WEB-INF/content/common/error.jsp</result>		
+		</action>
+		
+	
+	</package>	
+	
+	<package name="patient-medical-record3" namespace="/patient-medical-record3"
+		extends="json-default, authorized">
+
+		<action name="form"
+			class="com.doerit.action.patient.PatientDiagnosticMedicalRecord3Action" method="form">
+			<result name="success">/WEB-INF/content/patient/diagnostic/mediRecord3.jsp</result>	
+		</action>
+		<action name="save"
+			class="com.doerit.action.patient.PatientDiagnosticMedicalRecord3Action" method="save">
+			<result name="success">/WEB-INF/content/patient/diagnostic/mediRecord4.jsp</result>	
+			<result name="input">/WEB-INF/content/patient/diagnostic/mediRecord3.jsp</result>
+			<result name="preview">/WEB-INF/content/patient/diagnostic/preview.jsp</result>	
+		</action>		
+		
+	</package>
+	
+	<package name="patient-medical-record4" namespace="/patient-medical-record4"
+		extends="json-default, authorized">
+
+		<action name="form"
+			class="com.doerit.action.patient.PatientDiagnosticMedicalRecord4Action" method="form">
+			<result name="success">/WEB-INF/content/patient/diagnostic/mediRecord4.jsp</result>	
+		</action>
+		<action name="save"
+			class="com.doerit.action.patient.PatientDiagnosticMedicalRecord4Action" method="save">
+			<result name="success">/WEB-INF/content/patient/diagnostic/drugHistory.jsp</result>	
+			<result name="input">/WEB-INF/content/patient/diagnostic/mediRecord4.jsp</result>
+			<result name="preview">/WEB-INF/content/patient/diagnostic/preview.jsp</result>	
+		</action>		
+		
+	</package>
+	
+	<package name="patient-drug-history" namespace="/patient-drug-history"
+		extends="json-default, authorized">
+
+		<action name="form"
+			class="com.doerit.action.patient.PatientDiagnosticDrugHistoryAction" method="form">
+			<result name="success">/WEB-INF/content/patient/diagnostic/drugHistory.jsp</result>	
+		</action>
+		<action name="formPhase2"
+			class="com.doerit.action.patient.PatientDiagnosticDrugHistoryAction" method="formPhase2">
+			<result name="success">/WEB-INF/content/patient/diagnostic/drugHistory2.jsp</result>
+			<result name="phase1">/WEB-INF/content/patient/diagnostic/drugHistory.jsp</result>	
+			
+		</action>
+
+		<action name="save"
+			class="com.doerit.action.patient.PatientDiagnosticDrugHistoryAction" method="save">
+			<result name="success">/WEB-INF/content/patient/diagnostic/drugHistory2.jsp</result>	
+			<result name="input">/WEB-INF/content/patient/diagnostic/drugHistory.jsp</result>
+			<result name="preview">/WEB-INF/content/patient/diagnostic/preview.jsp</result>	
+		</action>
+		<action name="savePhase2"
+			class="com.doerit.action.patient.PatientDiagnosticDrugHistoryAction" method="savePhase2">
+			<result name="success">/WEB-INF/content/patient/diagnostic/drugHistory2.jsp</result>	
+			<result name="input">/WEB-INF/content/patient/diagnostic/drugHistory2.jsp</result>
+			
+		</action>
+		
+		<action name="saveDrugs"
+			class="com.doerit.action.patient.PatientDiagnosticDrugHistoryAction" method="saveDrugs">
+			<result name="success">/WEB-INF/content/patient/diagnostic/drugHistory.jsp</result>
+			<result name="preview">/WEB-INF/content/patient/diagnostic/preview.jsp</result>	
+		</action>
+	</package>
+	
+	<package name="patient-investigations" namespace="/patient-investigations"
+		extends="json-default, authorized">
+
+		<action name="form"
+			class="com.doerit.action.patient.PatientDiagnosticInvestigationAction" method="form">
+			<result name="success">/WEB-INF/content/patient/diagnostic/investigations.jsp</result>	
+		</action>
+		<action name="save"
+			class="com.doerit.action.patient.PatientDiagnosticInvestigationAction" method="save">
+			<result name="success">/WEB-INF/content/patient/diagnostic/habits1.jsp</result>	
+			<result name="input">/WEB-INF/content/patient/diagnostic/investigations.jsp</result>
+			<result name="preview">/WEB-INF/content/patient/diagnostic/preview.jsp</result>		
+		</action>
+		<!-- <action name="edit" class="com.doerit.action.patient.PatientAction" method="edit">
+			<result name="success">/WEB-INF/content/patient/diagnostic/investigations.jsp</result>
+		</action> -->
+	</package>
+	
+	<package name="patient-habits1" namespace="/patient-habits1"
+		extends="json-default, authorized">
+
+		<action name="form"
+			class="com.doerit.action.patient.PatientDiagnosticHabits1Action" method="form">
+			<result name="success">/WEB-INF/content/patient/diagnostic/habits1.jsp</result>	
+		</action>
+		<action name="save"
+			class="com.doerit.action.patient.PatientDiagnosticHabits1Action" method="save">
+			<result name="success">/WEB-INF/content/patient/diagnostic/habits2.jsp</result>	
+			<result name="input">/WEB-INF/content/patient/diagnostic/habits1.jsp</result>
+			<result name="preview">/WEB-INF/content/patient/diagnostic/preview.jsp</result>	
+		</action>
+	</package>
+	
+	<package name="patient-habits2" namespace="/patient-habits2"
+		extends="json-default, authorized">
+
+		<action name="form"
+			class="com.doerit.action.patient.PatientDiagnosticHabits2Action" method="form">
+			<result name="success">/WEB-INF/content/patient/diagnostic/habits2.jsp</result>	
+		</action>
+		<action name="save"
+			class="com.doerit.action.patient.PatientDiagnosticHabits2Action" method="save">
+			<result name="success">/WEB-INF/content/patient/diagnostic/brushingHabits.jsp</result>	
+			<result name="input">/WEB-INF/content/patient/diagnostic/habits2.jsp</result>	
+			<result name="preview">/WEB-INF/content/patient/diagnostic/preview.jsp</result>
+		</action>
+	</package>
+	
+		<package name="brushing-habits" namespace="/brushing-habits"
+		extends="json-default, authorized">
+
+		<action name="form"
+			class="com.doerit.action.patient.PatientDiagnosticBrushingHabitsAction" method="form">
+			<result name="success">/WEB-INF/content/patient/diagnostic/brushingHabits.jsp</result>	
+		</action>
+		<action name="save"
+			class="com.doerit.action.patient.PatientDiagnosticBrushingHabitsAction" method="save">
+			<result name="success">/WEB-INF/content/patient/diagnostic/dietaryHabits.jsp</result>	
+			<result name="input">/WEB-INF/content/patient/diagnostic/brushingHabits.jsp</result>
+			<result name="preview">/WEB-INF/content/patient/diagnostic/preview.jsp</result>	
+		</action>
+	</package>
+	
+	<package name="dietary-habits" namespace="/dietary-habits"
+		extends="json-default, authorized">
+
+		<action name="form"
+			class="com.doerit.action.patient.PatientDiagnosticDietaryHabitsAction" method="form">
+			<result name="success">/WEB-INF/content/patient/diagnostic/dietaryHabits.jsp</result>	
+		</action>
+		<action name="save"
+			class="com.doerit.action.patient.PatientDiagnosticDietaryHabitsAction" method="save">
+			<result name="success">/WEB-INF/content/patient/diagnostic/preview.jsp</result>	
+			<result name="input">/WEB-INF/content/patient/diagnostic/dietaryHabits.jsp</result>	
+			<result name="preview">/WEB-INF/content/patient/diagnostic/preview.jsp</result>
+		</action>	
+	</package>
+	
+	<package name="clear-session" namespace="/clear-session" extends="json-default, authorized">
+	 <action name="clear"
+			class="com.doerit.action.patient.PatientDiagnosticSaveAction" method="clearSessionCache">
+			<result name="success">/WEB-INF/content/patient/diagnostic/complaint.jsp</result>	
+		</action>
+		
+	
+	</package>
+	
+	<package name="hard-tissue" namespace="/hard-tissue-examination"
+		extends="json-default, authorized">
+
+		<action name="form"
+			class="com.doerit.action.patient.HardTissueAction" method="form">
+			<result name="success">/WEB-INF/content/patient/diagnostic/hardTissue.jsp</result>	
+		</action>
+	</package>
+	
+	<package name="OcclusalRelation" namespace="/occlusal-relation"
+		extends="json-default, authorized">
+
+		<action name="form"
+			class="com.doerit.action.patient.OcclusalRelationAction" method="form">
+			<result name="success">/WEB-INF/content/patient/diagnostic/occlusal.jsp</result>	
+		</action>
+	</package>
+	
+	<package name="TreatmentPlan" namespace="/treatment-plan"
+		extends="json-default, authorized">
+
+		<action name="form"
+			class="com.doerit.action.patient.TreatmentPlanAction" method="form">
+			<result name="success">/WEB-INF/content/patient/diagnostic/treatmentPlan.jsp</result>	
+		</action>
+	</package>
+
+	<package name="SaveAllDiagnositic" namespace="/patient-diagnostic" extends="json-default, authorized">
+
+<!-- 		<action name="save-all" class="com.doerit.action.patient.PatientDiagnosticSaveAction" method="save">
+			<result name="success">/WEB-INF/content/employee/student/dashboard.jsp</result>	
+		</action>  -->
+		
+  		<action name="save-all" class="com.doerit.action.patient.PatientDiagnosticSaveAction" method="save">
+			<result name="success" type="redirectAction">
+				<param name="actionName">view</param>
+				<param name="namespace">/patient-diagnostic-report-list</param>
+				<param name="commonId">${commonIdTemp}</param>
+			</result>		
+		</action>
+		
+		<action name="resubmit" class="com.doerit.action.patient.PatientDiagnosticSaveAction" method="">
+			<result name="success" type="redirectAction">
+				<param name="actionName">view</param>
+				<param name="namespace">/patient-diagnostic-report-list</param>
+				<param name="commonId">${commonIdTemp}</param>
+			</result>		
+		</action> 
+		
+		
+
+	<!-- <action name="save-all" class="com.doerit.action.patient.PatientDiagnosticSaveAction" method="save">
+			<result name="success">/WEB-INF/content/patient/diagnostic/preview.jsp</result>	
+		</action>  -->
+		
+		<!-- <action name="patient-diagnostic-information-pdf" class="com.doerit.action.patient.PatientDiagnosticPdfSaveAction" method="patientDiagnosticInformationPdf">
+			<result name="success" type="stream">
+			  <param name="contentType">application/pdf</param>
+			  <param name="inputName">fileInputStream</param>
+			  <param name="contentDisposition">filename="${fileName}"</param>
+			  <param name="bufferSize">1024</param>
+			</result>
+			<result name="input">/WEB-INF/content/common/error.jsp</result>		
+		</action> -->
+		
+		<action name="patient-diagnostic-information-pdf" class="com.doerit.action.patient.PatientDiagnosticPdfSaveAction" method="patientDiagnosticInformationPdf">
+			<result name="success" type="stream">
+			  <param name="contentType">application/pdf</param>
+			  <param name="inputName">fileInputStream</param>
+			  <param name="contentDisposition">filename="${fileName}"</param>
+			  <param name="bufferSize">1024</param>
+			</result>
+			<result name="input">/WEB-INF/content/common/error.jsp</result>		
+		</action>
+	</package>	
+	
+	<!-- action mappers for diagnostic preview -->
+	<package name="PatientDiagnosticReportList" namespace="/patient-diagnostic-report-list" extends="json-default, authorized">
+
+		
+		<action name="list" class="com.doerit.action.patient.ViewDiagnosticListAction" method="viewComplaintList">
+			<result name="success">/WEB-INF/content/patient/diagnostic/view-list.jsp</result>	
+			<result name="input">/WEB-INF/content/common/error.jsp</result>	
+		</action>
+		
+		<action name="back" class="com.doerit.action.patient.ViewDiagnosticListAction" method="back">
+			<result name="success">/WEB-INF/content/patient/diagnostic/view-list.jsp</result>	
+			<result name="input">/WEB-INF/content/common/error.jsp</result>	
+		</action>
+		
+		<action name="view" class="com.doerit.action.patient.ViewDiagnosticListAction" method="viewDiagnosticDetails">
+			<result name="success">/WEB-INF/content/patient/diagnostic/view/preview.jsp</result>	
+			<result name="input">/WEB-INF/content/common/error.jsp</result>	
+		</action>
+
+		<action name="activate" class="com.doerit.action.patient.ViewDiagnosticListAction" method="activateDiagnosticDetails">
+			<result name="success">/WEB-INF/content/reportChecking/complaintCheck.jsp</result>	
+			<result name="input">/WEB-INF/content/reportChecking/complaintCheck.jsp</result>	
+		</action>
+
+		<action name="activateDiagnosticDetailsWithComment" class="com.doerit.action.patient.ViewDiagnosticListAction" method="activateDiagnosticDetailsWithComment">
+ 			<result name="success">/WEB-INF/content/patient/diagnostic/view-list.jsp</result>	
+			<result name="input">/WEB-INF/content/patient/diagnostic/view-list.jsp</result>	
+		</action>
+		
+		<action name="rejectDiagnosticDetailsWithComment" class="com.doerit.action.patient.ViewDiagnosticListAction" method="rejectDiagnosticDetailsWithComment">
+ 			<result name="success">/WEB-INF/content/patient/diagnostic/view-list.jsp</result>	
+			<result name="input">/WEB-INF/content/patient/diagnostic/view-list.jsp</result>	
+		</action>
+		
+
+<!-- 		<action name="writeJSON" class="com.doerit.action.patient.ViewDiagnosticListAction" method="writeJSON">
+		    <result type="json">
+			  <param name="root">
+			    person.job
+			  </param>
+			  <param name="statusCode">304</param>
+		    </result> 
+		</action> -->
+	</package>	
+	
+</struts>	

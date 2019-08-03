@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="patient-submission" namespace="/patient-submission"
+		extends="json-default, authorized">
+		
+		<action name="active-submits"
+			class="com.doerit.action.student.StudentReportsAction" method="activeSubmissions">
+			<result name="success">/WEB-INF/content/submissions/submissionsActive.jsp</result>	
+		</action>
+		
+		<action name="submit"
+			class="com.doerit.action.student.StudentReportsAction" method="newSubmissions">
+			<result name="success">/WEB-INF/content/submissions/submissions.jsp</result>	
+		</action>
+		
+		<action name="rejected-submits"
+			class="com.doerit.action.student.StudentReportsAction" method="rejectedSubmissions">
+			<result name="success">/WEB-INF/content/submissions/submissionsRejected.jsp</result>	
+		</action>
+		<action name="rejected-submits-preview"
+			class="com.doerit.action.student.StudentReportsAction" method="rejectedSubmissionsPreview">
+			<result name="success">/WEB-INF/content/preview/rejectedPreview.jsp</result>	
+		</action>
+		
+		
+		
+	</package>	
+</struts>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="patient-reports"	namespace="/patient-report-checking"
+		extends="json-default, authorized">
+
+		<action name="form"
+			class="com.doerit.action.reportChecking.ReportCheckingAction"	method="form">
+			<result name="success">/WEB-INF/content/reportChecking/list.jsp</result>
+		</action>
+		
+		<!-- all list for doctors -->
+		<action name="list"	class="com.doerit.action.patient.ViewDiagnosticListAction"	method="viewAllComplaintList">
+			<result name="success">/WEB-INF/content/reportChecking/pendingReports.jsp</result>
+		</action>		
+	</package>
+
+
+	<package name="pending-reports-check" namespace="/pending-reports-check"
+		extends="json-default, authorized">
+
+		<action name="form" class="com.doerit.action.reportChecking.PendingReportsCheckAction" method="form">
+			<result name="success">/WEB-INF/content/reportChecking/pendingReports.jsp</result>
+		</action>
+		
+		<action name="form" class="com.doerit.action.reportChecking.PendingReportsCheckAction" method="viewAllPendingList">
+			<result name="success">/WEB-INF/content/reportChecking/pendingReports.jsp</result>
+		</action>
+	</package>
+	
+	<package name="department-reports-check" namespace="/department-reports-check"
+		extends="json-default, authorized">
+
+		<action name="form" class="com.doerit.action.reportChecking.DepartmentReportsCheckAction" method="form">
+			<result name="success">/WEB-INF/content/reportChecking/departmentReports.jsp</result>
+		</action>
+		<action name="form" class="com.doerit.action.reportChecking.DepartmentReportsCheckAction" method="viewAllDepartmentPendingList">
+			<result name="success">/WEB-INF/content/reportChecking/departmentReports.jsp</result>
+		</action>
+	</package>
+	
+	<package name="all-reports-check" namespace="/all-reports-check"
+		extends="json-default, authorized">
+
+		<action name="form" class="com.doerit.action.reportChecking.AllReportsCheckAction" method="form">
+			<result name="success">/WEB-INF/content/reportChecking/allReports.jsp</result>
+		</action>
+		<action name="form" class="com.doerit.action.reportChecking.AllReportsCheckAction" method="viewAllPendingAndAciveList">
+			<result name="success">/WEB-INF/content/reportChecking/allReports.jsp</result>
+		</action>
+	</package>
+
+	<package name="history-check" namespace="/dental-history-check"
+		extends="json-default, authorized">
+
+		<action name="form"
+			class="com.doerit.action.reportChecking.DHistoryCheckAction"
+			method="form">
+			<result name="success">/WEB-INF/content/reportChecking/dentalHistoryCheck.jsp
+			</result>
+		</action>
+	</package>
+	
+	<package name="complaint-search" namespace="/complaint-search" extends="json-default, authorized">
+		
+		<action name="search" class="com.doerit.action.reportChecking.AllReportsCheckAction"
+			method="search">
+			<result name="success">/WEB-INF/content/reportChecking/searchList.jsp</result>
+		</action>
+	</package>
+	
+	
+</struts>	

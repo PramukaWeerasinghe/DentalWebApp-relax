@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="dashboard" namespace="/" extends="json-default, authorized">
+	
+		<action name="dashboard" class="com.doerit.action.dashboard.DashBoardAction" method="dashBoard">
+			<result name="EMPLOYEE">/WEB-INF/content/employee/dashboard.jsp</result>
+			<result name="DOCTOR">/WEB-INF/content/employee/doctor/dashboard.jsp</result>
+			<result name="STUDENT">/WEB-INF/content/employee/student/dashboard.jsp</result>
+			
+			<result name="AUTHORIZED EMPLOYEE">/WEB-INF/content/department/dashboard.jsp</result>
+			<result name="AUTHORIZED DOCTOR">/WEB-INF/content/employee/doctor/dashboard.jsp</result>
+			<result name="AUTHORIZED STUDENT">/WEB-INF/content/employee/student/dashboard.jsp</result>		
+			<result name="AUTHORIZED DEPARTMENT">/WEB-INF/content/department/dashboard.jsp</result>	
+			<result name="AUTHORIZED RECEPTION">/WEB-INF/content/employee/reception/dashboard.jsp</result>	
+										
+			<result name="DEPARTMENT">/WEB-INF/content/department/dashboard.jsp</result>	
+			<result name="PATIENT">/WEB-INF/content/dashboard/user.jsp</result>	
+			<result name="MINISTRY">/WEB-INF/content/dashboard/user.jsp</result>				
+			<result name="input">/WEB-INF/content/dashboard/error.jsp</result>
+		</action>
+		
+	</package>
+		
+</struts>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="patient-missing-teeth" namespace="/patient-missing-teeth" extends="json-default, authorized">
+
+		<action name="view" class="com.doerit.action.patient.missingTeeth.MissingTeethAction" method="view">
+			<!-- <result name="success">/WEB-INF/content/patient/missingTeeth/addMissingTeeth.jsp</result> -->
+			<result name="success">/WEB-INF/content/patient/missingTeeth/view-history.jsp</result>
+		</action>
+
+		<action name="addMixedMissingTeeth" class="com.doerit.action.patient.missingTeeth.MissingTeethAction" method="addMixedMissingTeeth">
+			<!-- <result name="success">/WEB-INF/content/patient/missingTeeth/addMissingTeeth.jsp</result> -->
+			<result name="success">/WEB-INF/content/patient/missingTeeth/addMixedMissingTeethSVGinput.jsp</result>
+		</action>
+		
+		<action name="addMissingTeeth" class="com.doerit.action.patient.missingTeeth.MissingTeethAction" method="addMissingTeeth">
+			<!-- <result name="success">/WEB-INF/content/patient/missingTeeth/addMissingTeeth.jsp</result> -->
+			<result name="success">/WEB-INF/content/patient/missingTeeth/addMissingTeethSVGinput.jsp</result>
+		</action>
+	
+		<action name="addPermanentMissingTeeth" class="com.doerit.action.patient.missingTeeth.MissingTeethAction" method="addPermanentMissingTeeth">
+			<!-- <result name="success">/WEB-INF/content/patient/missingTeeth/addMissingTeeth.jsp</result> -->
+			<result name="success">/WEB-INF/content/patient/missingTeeth/addPermenentMissingTeethSVGinput.jsp</result>
+		</action>
+		
+		<action name="save" class="com.doerit.action.patient.missingTeeth.MissingTeethAction" method="save">
+			<result name="success">/WEB-INF/content/patient/missingTeeth/view.jsp</result>
+		</action>
+		
+		<action name="deleteTemporary" class="com.doerit.action.patient.missingTeeth.MissingTeethAction" method="deleteTemporary">
+			<result name="success">/WEB-INF/content/patient/missingTeeth/view.jsp</result>
+			<result name="input">/WEB-INF/content/patient/missingTeeth/view.jsp</result>
+		</action>
+		
+		<action name="viewMissing" class="com.doerit.action.patient.missingTeeth.MissingTeethAction" method="viewMissing">
+			<result name="success">/WEB-INF/content/patient/missingTeeth/view.jsp</result>
+		</action>
+			
+		
+	</package>
+		
+</struts>

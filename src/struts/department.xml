@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="department" namespace="/department" extends="json-default, authorized">
+
+		<action name="list" class="com.doerit.action.department.DepartmentAction" method="list">
+			<result name="success">/WEB-INF/content/department/list.jsp</result>
+		</action>
+					
+		<action name="form" class="com.doerit.action.department.DepartmentAction" method="form">
+			<result name="success">/WEB-INF/content/department/form.jsp</result>
+		</action>
+		
+		<action name="edit" class="com.doerit.action.department.DepartmentAction" method="edit">
+			<result name="success">/WEB-INF/content/department/form.jsp</result>
+			<result name="input">/WEB-INF/content/department/list.jsp</result>
+		</action>
+		
+		<action name="view" class="com.doerit.action.department.DepartmentAction" method="view">
+			<result name="success">/WEB-INF/content/department/view.jsp</result>
+		</action>
+		
+		<action name="save" class="com.doerit.action.department.DepartmentAction" method="save">
+			<result name="input">/WEB-INF/content/department/form.jsp</result>
+			<result name="success">/WEB-INF/content/department/list.jsp</result>
+		</action>
+		
+		<action name="delete" class="com.doerit.action.department.DepartmentAction" method="delete">
+			<result name="success">/WEB-INF/content/department/list.jsp</result>
+			<result name="input">/WEB-INF/content/department/list.jsp</result>
+		</action>
+		
+		<action name="restore" class="com.doerit.action.department.DepartmentAction" method="restore">
+			<result name="success">/WEB-INF/content/department/list.jsp</result>
+			<result name="input">/WEB-INF/content/department/list.jsp</result>
+		</action>
+		
+		<action name="deleted" class="com.doerit.action.department.DepartmentAction" method="deleted">
+			<result name="success">/WEB-INF/content/department/list.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>

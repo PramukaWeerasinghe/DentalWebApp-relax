@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="userAccount" namespace="/user-account" extends="json-default, authorized">
+
+		<action name="list" class="com.doerit.action.account.UserAccountAction" method="list">
+			<result name="success">/WEB-INF/content/user-account/list.jsp</result>
+		</action>
+					
+		<action name="form" class="com.doerit.action.account.UserAccountAction" method="form">
+			 <result name="success">/WEB-INF/content/user-account/form.jsp</result> 
+		</action>
+
+		<action name="save" class="com.doerit.action.account.UserAccountAction" method="save">
+			<result name="success">/WEB-INF/content/user-account/view-account.jsp</result>
+			<result name="input">/WEB-INF/content/user-account/form.jsp</result>
+		</action>
+		
+		<action name="edit" class="com.doerit.action.account.UserAccountAction" method="edit">
+			<result name="success">/WEB-INF/content/user-account/form.jsp</result>
+		</action>
+		
+		<action name="view" class="com.doerit.action.account.UserAccountAction" method="view">
+			<result name="success">/WEB-INF/content/user-account/view.jsp</result>
+		</action>
+		
+		<action name="delete" class="com.doerit.action.account.UserAccountAction" method="delete">
+			<result name="success">/WEB-INF/content/user-account/list.jsp</result>
+			<result name="input">/WEB-INF/content/user-account/list.jsp</result>
+		</action>
+		
+		<action name="restore" class="com.doerit.action.account.UserAccountAction" method="restore">
+			<result name="success">/WEB-INF/content/user-account/list.jsp</result>
+			<result name="input">/WEB-INF/content/user-account/list.jsp</result>
+		</action>
+		
+		<action name="deleted" class="com.doerit.action.account.UserAccountAction" method="deleted">
+			<result name="success">/WEB-INF/content/user-account/list.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>

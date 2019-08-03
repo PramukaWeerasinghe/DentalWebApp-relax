@@ -1,0 +1,36 @@
+CREATE TABLE `tbl_patient_request_xray` (
+  `ID` char(32) COLLATE utf8_unicode_ci NOT NULL,
+  `PATIENT_ID` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CLINICAL_HISTORY` char(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `IOPA` char(128) COLLATE utf8_unicode_ci DEFAULT NULL,  
+  `BITEWING` char(128) COLLATE utf8_unicode_ci DEFAULT NULL,  
+  `OCCLUSAL_VIEW` char(128) COLLATE utf8_unicode_ci DEFAULT NULL,  
+  `OPG` char(128) COLLATE utf8_unicode_ci DEFAULT NULL,  
+  `SIALOGRAM` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,  
+  `CEPHALOGRAM` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,  
+  `TMJ_VIEW` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,  
+  `OM_VIEW_OF_SKULL` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,  
+  `MANDIBULAR_VIEW` char(128) COLLATE utf8_unicode_ci DEFAULT NULL,  
+  `SKULL_VIEW` char(128) COLLATE utf8_unicode_ci DEFAULT NULL,  
+  `REVERSE_TOWNS` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,  
+  
+  `CHEST_XRAY` char(128) COLLATE utf8_unicode_ci DEFAULT NULL,  
+  `CSPINENECK` char(128) COLLATE utf8_unicode_ci DEFAULT NULL,  
+  `CBCT` char(128) COLLATE utf8_unicode_ci DEFAULT NULL,  
+  `USS` char(128) COLLATE utf8_unicode_ci DEFAULT NULL,  
+
+  `OFFICER_NAME` char(64) COLLATE utf8_unicode_ci DEFAULT NULL,  
+  `DEPARTMENT` char(64) COLLATE utf8_unicode_ci DEFAULT NULL,  
+  `XRAY_NUMBER` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,  
+  `RADIOGRAPHER` char(64) COLLATE utf8_unicode_ci DEFAULT NULL,    
+  
+  `PROPERTY_VALUE` char(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `COMMENT` char(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `STATUS` tinyint(2) DEFAULT '1',
+  `SORT_ORDER` int(4) DEFAULT '1',
+  `INSERT_USER_ID` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `UPDATE_USER_ID` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `INSERT_DATETIME` datetime DEFAULT NULL,
+  `UPDATE_DATETIME` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

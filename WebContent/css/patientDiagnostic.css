@@ -1,0 +1,27 @@
+@charset "ISO-8859-1";
+
+.btn2 {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #1a87f4;
+  border: none;
+  border-radius: 15px;
+  
+}
+
+.btn2:hover {background-color: #3e8e41}
+
+.btn2:active {
+  background-color: #3e8e41;
+  transform: translateY(4px);
+}
+
+#pathology{
+	padding-bottom:5px;
+}

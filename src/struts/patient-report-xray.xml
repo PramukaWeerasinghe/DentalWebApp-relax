@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="patient-report-xray" namespace="/patient-report-xray"
+		extends="json-default, authorized">
+
+		<action name="form"
+			class="com.doerit.action.patient.PatientReportXrayAction" method="form">
+			<result name="success">/WEB-INF/content/patient/xrayReport/form.jsp
+			</result>
+		</action>
+
+		<action name="save"
+			class="com.doerit.action.patient.PatientReportXrayAction" method="save">
+			<result name="input">/WEB-INF/content/patient/xrayReport/form.jsp</result>
+			<result name="success">/WEB-INF/content/patient/xrayReport/form.jsp</result>
+		</action>
+
+		<action name="view"
+			class="com.doerit.action.patient.PatientReportXrayAction" method="view">
+			<result name="success">/WEB-INF/content/patient/xrayReport/view.jsp
+			</result>
+		</action>
+
+		<action name="viewAll"
+			class="com.doerit.action.patient.PatientReportXrayAction" method="viewAll">
+			<result name="success">/WEB-INF/content/patient/xrayReport/report-list.jsp
+			</result>
+		</action>
+
+		<action name="delete"
+			class="com.doerit.action.patient.PatientReportXrayAction" method="delete">
+			<result name="success">/WEB-INF/content/patient/xrayReport/view.jsp
+			</result>
+		</action>
+
+		<action name="fileUploadAction"
+			class="com.doerit.action.patient.PatientReportXrayAction" method="display">
+			<result name="none">pages/fileupload.jsp</result>
+		</action>
+
+		<action name="resultAction"
+			class="com.doerit.action.patient.PatientReportXrayAction">
+			<interceptor-ref name="exception" />
+			<interceptor-ref name="i18n" />
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">text/plain</param>
+				<param name="maximumSize">10240000</param>
+			</interceptor-ref>
+			<interceptor-ref name="params">
+				<param name="excludeParams">dojo\..*,^struts\..*</param>
+			</interceptor-ref>
+			<interceptor-ref name="validation">
+				<param name="excludeMethods">input,back,cancel,browse</param>
+			</interceptor-ref>
+			<interceptor-ref name="workflow">
+				<param name="excludeMethods">input,back,cancel,browse</param>
+			</interceptor-ref>
+
+			<result name="success">/WEB-INF/content/patient/xrayReport/form.jsp
+			</result>
+			<result name="input">/WEB-INF/content/patient/xrayReport/form.jsp
+			</result>
+
+		</action>
+
+		<action name="list" class="com.doerit.action.xray.XrayReportAction"
+			method="list">
+			<result name="success">/WEB-INF/content/xray/list.jsp</result>
+		</action>
+
+
+	</package>
+
+</struts>

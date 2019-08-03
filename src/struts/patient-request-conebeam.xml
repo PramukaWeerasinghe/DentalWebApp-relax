@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="patient-request-conebeam" namespace="/patient-request-conebeam" extends="json-default, authorized">
+	
+		<action name="form" class="com.doerit.action.patient.PatientRequestConebeamAction" method="form">
+			<result name="success">/WEB-INF/content/patient/requestConeBeamCT/form.jsp</result>
+		</action>
+		
+		<action name="save" class="com.doerit.action.patient.PatientRequestConebeamAction" method="save">
+			<result name="input">/WEB-INF/content/patient/requestConeBeamCT/form.jsp</result>
+			<result name="success">/WEB-INF/content/patient/requestConeBeamCT/view.jsp</result>
+		</action>
+		
+		<action name="view" class="com.doerit.action.patient.PatientRequestConebeamAction" method="view">
+			<result name="success">/WEB-INF/content/patient/requestConeBeamCT/view.jsp</result>
+		</action>	
+
+
+		<action name="information-pdf"
+			class="com.doerit.action.patient.PatientRequestConebeamAction" method="patientConebeamRequestPdf">
+			<result name="success" type="stream">
+				<param name="contentType">application/pdf</param>
+				<param name="inputName">fileInputStream</param>
+				<param name="contentDisposition">filename="${fileName}"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+			<result name="input">/WEB-INF/content/common/error.jsp</result>
+		</action>
+
+
+<!-- Uploaded report list -->
+		<action name="list" class="com.doerit.action.cbct.CbctRequestAction"	method="list">
+			<result name="success">/WEB-INF/content/cbctRequests/list.jsp</result>
+		</action>
+
+
+<!-- list action for requests pager -->
+		<action name="listRequests" class="com.doerit.action.cbct.CbctRequestAction" method="listRequests">
+			<result name="success">/WEB-INF/content/cbctRequests/list.jsp</result>
+		</action>
+
+
+
+<!-- setAcceptedStatus -->
+		<action name="setAcceptedStatus" class="com.doerit.action.cbct.CbctRequestAction" method="setAcceptedStatus">
+			<result name="success">/WEB-INF/content/xrayRequests/list.jsp</result>
+		</action>
+
+<!-- list action for accepted xrays -->
+		<action name="listAccepted" class="com.doerit.action.cbct.CbctRequestAction" method="listAccepted">
+			<result name="success">/WEB-INF/content/cbctRequests/list.jsp</result>
+		</action>
+
+
+
+		
+	</package>
+		
+</struts>

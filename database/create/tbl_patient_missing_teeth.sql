@@ -1,0 +1,17 @@
+CREATE TABLE `tbl_patient_missing_teeth` (
+  `ID` char(32) NOT NULL,
+  `PATIENT_ID` char(32) DEFAULT NULL,
+  
+  `TEETH_TYPE` char(255) DEFAULT NULL,
+  `TEETH_LIST` char(255) DEFAULT NULL,
+  
+  
+  `COMMENT` text CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `STATUS` tinyint(4) DEFAULT '0',
+  `SORT_ORDER` int(6) DEFAULT '1',
+  `INSERT_USER_ID` char(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `INSERT_DATETIME` datetime DEFAULT NULL,
+  `UPDATE_USER_ID` char(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `UPDATE_DATETIME` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

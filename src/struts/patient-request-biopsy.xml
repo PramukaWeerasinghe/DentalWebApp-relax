@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="patient-request-biopsy" namespace="/patient-request-biopsy"
+		extends="json-default, authorized">
+
+		<action name="form" class="com.doerit.action.patient.PatientRequestBiopsyAction" method="form">
+			<result name="success">/WEB-INF/content/patient/requestBiopsy/form.jsp
+			</result>
+		</action>
+
+
+		<action name="save"	class="com.doerit.action.patient.PatientRequestBiopsyAction" method="save">
+			<result name="input">/WEB-INF/content/patient/requestBiopsy/form.jsp 
+			</result> 
+
+ 			<result name="success" type="redirectAction">
+				<param name="actionName">draw</param>
+				<param name="namespace">/patient-request-biopsy</param>
+				<param name="id">${patientRequestBiopsy.id}</param>
+			</result>
+
+<!--  			<result name="success" type="redirectAction">
+				<param name="actionName">view</param>
+				<param name="namespace">/patient-request-biopsy</param>
+				<param name="id">${patientRequestBiopsy.id}</param>
+			</result> -->
+
+		</action>
+
+		
+		<action name="edit" class="com.doerit.action.patient.PatientRequestBiopsyAction" method="edit">
+			<result name="success">/WEB-INF/content/patient/requestBiopsy/form.jsp</result>
+		</action>
+
+		<action name="draw" class="com.doerit.action.patient.PatientRequestBiopsyAction" method="draw">
+			<result name="success">/WEB-INF/content/patient/requestBiopsy/form-view.jsp
+			</result>			
+		</action>
+
+		<action name="save-draw" class="com.doerit.action.patient.PatientRequestBiopsyAction" method="savedraw">
+			<result name="success">/WEB-INF/content/patient/requestBiopsy/view.jsp
+			</result>			
+			<result name="input">/WEB-INF/content/patient/requestBiopsy/form-drawing.jsp
+			</result>			
+		</action>
+		
+		<action name="view" class="com.doerit.action.patient.PatientRequestBiopsyAction" method="view">
+			<result name="success">/WEB-INF/content/patient/requestBiopsy/view.jsp
+			</result>			
+		</action>
+
+	</package>
+
+</struts>
